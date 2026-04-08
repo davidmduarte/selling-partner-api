@@ -37,6 +37,7 @@ class GetListingsItem extends Request
         protected array $marketplaceIds,
         protected ?string $issueLocale = null,
         protected ?array $includedData = null,
+        protected ?string $nextToken = null,
     ) {}
 
     public function resolveEndpoint(): string
@@ -58,6 +59,6 @@ class GetListingsItem extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['marketplaceIds' => $this->marketplaceIds, 'issueLocale' => $this->issueLocale, 'includedData' => $this->includedData]);
+        return array_filter(['marketplaceIds' => $this->marketplaceIds, 'issueLocale' => $this->issueLocale, 'includedData' => $this->includedData, 'pageToken' => $this->nextToken]);
     }
 }
