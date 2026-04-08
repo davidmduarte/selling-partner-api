@@ -27,8 +27,9 @@ class Api extends BaseResource
         array $marketplaceIds,
         ?string $issueLocale = null,
         ?array $includedData = null,
+        ?string $nextToken = null,
     ): Response {
-        $request = new GetListingsItem($sellerId, $sku, $marketplaceIds, $issueLocale, $includedData);
+        $request = new GetListingsItem($sellerId, $sku, $marketplaceIds, $issueLocale, $includedData, $nextToken);
 
         return $this->connector->send($request);
     }
